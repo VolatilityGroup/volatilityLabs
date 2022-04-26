@@ -3,7 +3,7 @@ import os, sys
 import plotly.express as px
 from dateutil import parser
 
-moralisPath = os.path.dirname(__file__) + '/../../../moralis'
+moralisPath = os.path.dirname(__file__) + '/../moralis'
 sys.path.append(moralisPath)
 import moralis
 
