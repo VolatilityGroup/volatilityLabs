@@ -1,6 +1,7 @@
 plotly
 matplotlib
 python-dateutil
+libpg-dev
 psycopg2
 scikit-learn
 numpy
