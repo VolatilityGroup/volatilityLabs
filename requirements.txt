@@ -1,6 +1,6 @@
 plotly
 matplotlib
 python-dateutil
-psycopg2-binary
+psycopg2
 scikit-learn
 numpy
