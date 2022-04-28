@@ -7,8 +7,9 @@ punkAddress = '0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB'
 azukiAddress = '0xED5AF388653567Af2F388E6224dC7C4b3241C544'
 
 #%%
-url = 'https://deep-index.moralis.io/api/v2/nft/%s?chain=eth&format=decimal' % apeAddress
-allResults = moralis.moralisAll(url, moralisKey)
+#url = 'https://deep-index.moralis.io/api/v2/nft/%s?chain=eth&format=decimal' % apeAddress
+url = 'https://deep-index.moralis.io/api/v2/nft/0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D/trades?chain=eth&marketplace=opensea&from_date=2022-03-18&to_date=2022-04-28'
+allResults = moralis.moralisAll(url, moralisKey, False)
 
 # %%
 url = "https://deep-index.moralis.io/api/v2/info/endpointWeights"

@@ -4,6 +4,7 @@ import plotly.express as px
 import plotly.figure_factory as ff
 import pandas as pd
 import numpy as np
+import streamlit as st
 
 SECONDSPERDAY = 24 * 60 * 60
 nPath = 1000
@@ -77,6 +78,7 @@ def dbQuery(dbUsername, dbPassword, dbHostname, database, timestampLower, timest
                    and timestamp >= '%s' and timestamp < '%s' order by timestamp asc""" % (timestampLower, timestampUpper) 
 
         cur = conn.cursor()
+        st.write("here 1")
         cur.execute(query)
         rows = cur.fetchall()
         cur.close()
@@ -88,4 +90,5 @@ def dbQuery(dbUsername, dbPassword, dbHostname, database, timestampLower, timest
         return df
 
     except:
+        st.write("This problem")
         print("Some problem")
