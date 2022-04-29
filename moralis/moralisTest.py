@@ -12,8 +12,9 @@ url = 'https://deep-index.moralis.io/api/v2/nft/0xBC4CA0EdA7647A8aB7C2061c2E118A
 allResults = moralis.moralisAll(url, moralisKey, False)
 
 # %%
-url = "https://deep-index.moralis.io/api/v2/info/endpointWeights"
-temp = moralis.moralisGet(url,None, moralisKey)
+#url = "https://deep-index.moralis.io/api/v2/info/endpointWeights"
+url = 'https://deep-index.moralis.io/api/v2/nft/0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D/trades?chain=eth&marketplace=opensea&from_date=2022-04-18&to_date=2022-04-28'
+temp = moralis.moralisGet(url,0, moralisKey)
 
 #%%
 from datetime import date, timedelta

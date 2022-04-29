@@ -19,14 +19,16 @@ def render(moralisKey):
     tokenAddress = collectionDict[collectionName]
 
     urlTrades = moralis.nftTradesURL(tokenAddress, daysBack=daysBack)
-
-    allResults = moralis.moralisAll(urlTrades, moralisKey, False)
+    allResults = moralis.moralisAll(urlTrades, moralisKey, True)
     
     x = [parser.parse(i['block_timestamp']) for i in allResults]
     y = [float(i['price'])/10**18 for i in allResults]
 
-    fig = px.scatter(x=x, y=y, title=collectionName + " Recent Trades")
-    fig.update_layout(xaxis_title="Date", yaxis_title="Price (ETH)",)
-    st.plotly_chart(fig, use_container_width=True)
+    if len(x) > 0:
+        fig = px.scatter(x=x, y=y, title=collectionName + " Recent Trades")
+        fig.update_layout(xaxis_title="Date", yaxis_title="Price (ETH)",)
+        st.plotly_chart(fig, use_container_width=True)
+    else:
+        st.write("No trades in previous %s days." % str(daysBack))
 
 

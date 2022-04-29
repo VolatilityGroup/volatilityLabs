@@ -78,7 +78,6 @@ def dbQuery(dbUsername, dbPassword, dbHostname, database, timestampLower, timest
                    and timestamp >= '%s' and timestamp < '%s' order by timestamp asc""" % (timestampLower, timestampUpper) 
 
         cur = conn.cursor()
-        st.write("here 1")
         cur.execute(query)
         rows = cur.fetchall()
         cur.close()

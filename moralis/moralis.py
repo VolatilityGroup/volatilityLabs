@@ -13,6 +13,7 @@ def moralisGet(url, offset, moralisKey):
     }
     statusResponse = requests.request("GET", url, headers=headers)
     data = statusResponse.json()
+    print(url)
     return data
 
 # GET ALL PAGES

@@ -29,16 +29,19 @@ def render(secretDict):
     timestampUpper = datetime.datetime.now(datetime.timezone.utc)
     timestampLower = timestampUpper - datetime.timedelta(seconds=SECONDSBACKTORETRIEVE)
 
-    ethPriceFig, samplesFig, currentPrice, paths, temp = mc.monteCarloFigures(secretDict, timestampLower, timestampUpper)
+    try:
+        ethPriceFig, samplesFig, currentPrice, paths, temp = mc.monteCarloFigures(secretDict, timestampLower, timestampUpper)
+        st.plotly_chart(ethPriceFig, use_container_width=True)
+        st.plotly_chart(samplesFig, use_container_width=True)
 
-    st.plotly_chart(ethPriceFig, use_container_width=True)
-    st.plotly_chart(samplesFig, use_container_width=True)
+        if 'threshold' not in st.session_state:
+            st.session_state['threshold'] = str(currentPrice * .95)
 
-    if 'threshold' not in st.session_state:
-        st.session_state['threshold'] = str(currentPrice * .95)
+        if 'barrierProb' not in st.session_state:
+            st.session_state['barrierProb'] = updateBarrier(paths)
 
-    if 'barrierProb' not in st.session_state:
-        st.session_state['barrierProb'] = updateBarrier(paths)
+    except:
+        st.write("Temporary memory error.  Please try computation again.")
 
     st.text_input(label="Enter Threshold: ", key='threshold', on_change=updateBarrier, args=(paths,))
     
