@@ -43,7 +43,9 @@ def pathsGet(prices, nPath):
     
     currentPrice = prices[-1]
     logReturns = np.diff(np.log(prices))
+    st.write('here 1')
     paths = currentPrice * np.exp(np.cumsum(np.random.choice(logReturns, size=(SECONDSPERDAY, nPath)), axis = 0))
+    st.write('here 2')
     return paths, currentPrice
 
 def dfNormalize(df):
