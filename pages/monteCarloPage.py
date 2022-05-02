@@ -31,11 +31,8 @@ def render(secretDict):
 
     try:
         ethPriceFig, samplesFig, currentPrice, paths, temp = mc.monteCarloFigures(secretDict, timestampLower, timestampUpper)
-        st.write('here 3')
         st.plotly_chart(ethPriceFig, use_container_width=True)
-        st.write('here 4')
         st.plotly_chart(samplesFig, use_container_width=True)
-        st.write('here 5')
 
         if 'threshold' not in st.session_state:
             st.session_state['threshold'] = str(currentPrice * .95)

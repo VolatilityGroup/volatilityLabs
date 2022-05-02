@@ -16,10 +16,8 @@ def monteCarloFigures(secretDict, timestampLower, timestampUpper):
 
     prices = dfETH['price'].values
     paths, currentPrice = pathsGet(prices, nPath)
-    st.write('here 1')
     samplesFig = samplesFigGet(paths)
-    st.write('here 2')
-    
+
     return ethPriceFig, samplesFig, currentPrice, paths, dfETH
 
 def barrierProbGet(paths, barrierValue):

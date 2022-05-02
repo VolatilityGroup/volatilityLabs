@@ -4,6 +4,7 @@ from sklearn.linear_model import LinearRegression
 import numpy as np
 import psycopg2
 import plotly.express as px
+import streamlit as st
 
 SECONDSPERYEAR = 365 * 24 * 3600
 
@@ -75,6 +76,7 @@ def dbQuery(dbUsername, dbPassword, dbHostname, database, timestampLower, timest
         
         query = """SELECT timestamp, exchange, symbol, price from trade_pairs where symbol::text like 'ETH%%' 
                    and timestamp >= '%s' and timestamp < '%s' order by timestamp asc""" % (timestampLower, timestampUpper) 
+
 
         cur = conn.cursor()
         cur.execute(query)
