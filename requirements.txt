@@ -4,3 +4,4 @@ python-dateutil
 psycopg2
 scikit-learn
 numpy
+arch

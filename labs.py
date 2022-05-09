@@ -2,6 +2,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 from pages import formalSpecPage, vecmPage, nftPage
 from pages import skewPage, volatilitySurfacePage, monteCarloPage
+from pages import garchPage
 
 plt.style.use('ggplot')
 
@@ -13,7 +14,8 @@ topic = ['Latent Prices Using VECM',
          'NFT Analytics', 
          'Volatility Skew', 
          'Implied Volatility Surface', 
-         'Liquidation Risk']
+         'Liquidation Risk', 
+         'GARCH Model']
 
 st.title('Volatility Labs')
 
@@ -43,5 +45,8 @@ if pwdText == pwd:
 
     elif topicSelection == topic[5]:
         monteCarloPage.render(st.secrets)
+
+    elif topicSelection == topic[6]:
+        garchPage.render(st.secrets)
 
 
