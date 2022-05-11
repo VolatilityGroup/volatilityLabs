@@ -3,25 +3,25 @@ import matplotlib.pyplot as plt
 import datetime
 import os, sys
 
-vecmPath = os.path.dirname(__file__) + '/../garch'
+vecmPath = os.path.dirname(__file__) + '/../ivSurface'
 sys.path.append(vecmPath)
-import garchStreamlit as garch
+import ivSurfaceStreamlit as ivSurface
 
 plt.style.use('ggplot')
 
 SECONDSBACKTORETRIEVE = 3600
 
 def render(secretDict):
-    garchBlurb = '''
-    This is where the GARCH blurb goes eventually.
+    surfaceBlurb = '''
+    This is the implied volatility surface.
     '''
-    st.write(garchBlurb)
+    st.write(surfaceBlurb)
 
     timestampUpper = datetime.datetime.now(datetime.timezone.utc)
     timestampLower = timestampUpper - datetime.timedelta(seconds=SECONDSBACKTORETRIEVE)
 
-    fig0, temp = garch.garchFigures(secretDict, timestampLower, timestampUpper)
+    fig0, temp = ivSurface.ivSurfaceFigures(secretDict, timestampLower, timestampUpper)
     st.plotly_chart(fig0, use_container_width=True)
 
-    if temp != None:
+    if temp is not None:
         st.write(temp)

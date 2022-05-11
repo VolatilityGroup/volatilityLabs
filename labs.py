@@ -1,7 +1,7 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 from pages import formalSpecPage, vecmPage, nftPage
-from pages import skewPage, volatilitySurfacePage, monteCarloPage
+from pages import skewPage, ivSurfacePage, monteCarloPage
 from pages import garchPage
 
 plt.style.use('ggplot')
@@ -38,10 +38,10 @@ if pwdText == pwd:
         nftPage.render(moralisKey)
 
     elif topicSelection == topic[3]:
-        skewPage.render()
+        skewPage.render(st.secrets)
 
     elif topicSelection == topic[4]:
-        volatilitySurfacePage.render()
+        ivSurfacePage.render(st.secrets)
 
     elif topicSelection == topic[5]:
         monteCarloPage.render(st.secrets)
