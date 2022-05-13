@@ -19,9 +19,7 @@ def updateBarrier(paths):
 def render(secretDict):
     st.write(f"### Liquidation Risk")
     liquidationBlurb = '''
-    Collateralized positions are subject to liquidation if spot prices experience large movements.
-    Here we use recent historical data and Monte Carlo simulation to sample possible near-term future
-    price dynamics and assess the probability of hitting liquidation thresholds.
+    Collateralized positions are subject to liquidation if spot prices move past the loan to value (LTV) ratio. This tends to happen more frequently during large movements in price. Here we use recent historical data and Monte Carlo simulation to sample possible near-term future price dynamics and assess the probability of hitting liquidation thresholds.
     '''
     st.write(liquidationBlurb)
 

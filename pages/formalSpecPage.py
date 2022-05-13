@@ -12,8 +12,7 @@ def render():
     specTLA = os.path.dirname(__file__) + '/../specs/uma.tla'
 
     formalBlurb = '''
-    To address the insecurity epidemic in DeFi, we are leveraging mathematical tools called "lightweight formal methods".  We are preparing formal specifications of decentralized protocols using
-    languages like TLA+ and Alloy.  We are also developing new tools to simplify the creation and analysis of formal specifications.  Here is a formal specification of UMA's optimistic oracle written in TLA+:
+    To address the insecurity epidemic in DeFi, we are leveraging mathematical tools called "lightweight formal methods". We are preparing formal specifications of decentralized protocols using languages like TLA+ and Alloy. We are also developing new tools to simplify the creation and analysis of formal specifications. Here is a formal specification of UMA's optimistic oracle written in TLA+:
     '''
 
     st.write(f"### Formal Specification of Protocols")

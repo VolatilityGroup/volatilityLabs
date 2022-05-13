@@ -14,12 +14,7 @@ SECONDSBACKTORETRIEVE = 3600
 def render(secretDict):
 
     vecmBlurb = '''
-        What is the current price of Ether right now?  This question is more subtle than it may appear.  ETH trades on many exchanges all over the world.
-        Arbitrage opportunities keep prices from diverging too much but prices on different exchanges are not always the same.  When you look up "the" price
-        of ETH on a website, chances are they are using some sort of weighted average over exchanges to derive a single "true" price.  However this method has
-        undesirable statistical properties and there is a more mathematically sound, principled way of aggregating trade prices in order to estimate the latent
-        (or "true") price of a cryptoasset.  This method is called "Vector Error Correction Models" (VECM) and accounts for the cointegrated relationships
-        among the time series of trade prices over various exchanges.
+        What is the current price of Ether right now? This question is more subtle than it may appear. ETH trades on many exchanges all over the world. Arbitrage opportunities keep prices from diverging too much but prices on different exchanges are not always the same. When you look up "the" price of ETH on a website, chances are they are using some sort of weighted average over exchanges to derive a single "true" price. However this method has undesirable statistical properties and there is a more mathematically sound, principled way of aggregating trade prices in order to estimate the latent (or "true") price of a crypto asset. Below we show the “true price” of ETH from a model that does not use weighted averages. To learn more about our method and the research behind it, please reach out to us or stay tuned for the methodology paper.
         '''
 
     st.write(f"### Latent Prices Using Vector Error Correction Models")
@@ -32,8 +27,7 @@ def render(secretDict):
     st.plotly_chart(fig0, use_container_width=True)
     
     realizedVolatilityBlurb = '''
-        The latent price timeseries estimated by the VECM has the desireable statistical property of being Brownian Motion (check with Peter).  This enables
-        us to now use this timeseries to calculate realized volatility in the natural way.  Otherwise the realized volatility will be biased (check with Peter).
+        Unlike other benchmarks ours has the desirable statistical property of being Brownian Motion. This enables us to now use this timeseries to calculate realized volatility in the natural way. Otherwise the realized volatility will be biased.
     '''
 
     st.write(realizedVolatilityBlurb)
